@@ -1,9 +1,32 @@
 # docker-k8-demo
 
 ### Commands
+
+Check Docker containers:
 ```
 docker ps -a
 ```
+
+Check Docker images:
+```
+docker images
+```
+
+
+Before deleting an image delete the Containter that uses is:
+```
+docker container rm [CONTAINER ID]
+```
+Delete the image:
+```
+docker rmi [IMAGE_ID]
+```
+
+
+
+
+
+
 
 ```
 docker-compose down
