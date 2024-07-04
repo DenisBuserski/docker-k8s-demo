@@ -12,6 +12,26 @@ Check Docker images:
 docker images
 ```
 
+Build the Docker image:
+```
+docker build -t [IMAGE_NAME]:[VERSION] .
+```
+
+```
+docker build -t hello-docker:1.0 .
+```
+
+Run the Docker image:
+```
+docker run [IMAGE_NAME]:[VERSION]
+```
+
+```
+docker run hello-docker:1.0
+```
+
+
+
 
 Before deleting an image delete the Containter that uses is:
 ```
