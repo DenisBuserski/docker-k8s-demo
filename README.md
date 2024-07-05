@@ -29,12 +29,17 @@ docker run --name MyDockerApp hello-docker:1.0
 
 docker run hello-docker:1.0
 ```
+docker start vs docker run
+
+
 
 ```
 docker stop
 ```
 
-
+```
+docker system prune -a
+```
 
 Before deleting an image delete the container that uses is:
 ```
@@ -43,6 +48,7 @@ docker container rm [CONTAINER_ID]
 Delete the image:
 ```
 docker rmi [IMAGE_ID]
+docker image rm [NAME]
 ```
 
 
@@ -67,3 +73,5 @@ docker-compose up
 - [Why Use Docker: Real-life Use Cases](https://www.youtube.com/watch?v=rcYswUg0J5k)
 - [Multi Container Docker Applications | A real-world example](https://www.youtube.com/watch?v=bX_tFv0YCqg)
 - [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
+
+- [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
