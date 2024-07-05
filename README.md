@@ -65,6 +65,7 @@ docker image rm [IMAGE_ID]
 
 
 
+TO DO: Re-build image when change code
 
 ```
 docker system prune -a
@@ -72,7 +73,6 @@ docker system prune -a
 ```
 docker-compose down
 ```
-
 ```
 docker-compose up
 ```
