@@ -21,16 +21,18 @@ docker build -t [IMAGE_NAME]:[VERSION] .
 
 docker build -t hello-docker:1.0 .
 ```
-
-
 Run the Docker image:
 ```
 docker run [IMAGE_NAME]:[VERSION]
 
+docker run --name MyDockerApp hello-docker:1.0
+
 docker run hello-docker:1.0
 ```
 
-
+```
+docker stop
+```
 
 
 
@@ -52,9 +54,9 @@ docker-compose down
 ```
 docker-compose up
 ```
+<br>
 
-
-
+## Videos
 - [Intro to Docker [with Java Examples]](https://www.youtube.com/watch?v=FzwIs2jMESM)
 - [Docker in IntelliJ IDEA](https://www.youtube.com/watch?v=FzwIs2jMESM)
 - [100+ Docker Concepts you Need to Know](https://www.youtube.com/watch?v=rIrNIzy6U_g)
@@ -64,3 +66,4 @@ docker-compose up
 - [you need to learn Docker RIGHT NOW!! // Docker Containers 101](https://www.youtube.com/watch?v=eGz9DS-aIeY)
 - [Why Use Docker: Real-life Use Cases](https://www.youtube.com/watch?v=rcYswUg0J5k)
 - [Multi Container Docker Applications | A real-world example](https://www.youtube.com/watch?v=bX_tFv0YCqg)
+- [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
