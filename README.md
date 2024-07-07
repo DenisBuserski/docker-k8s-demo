@@ -1,4 +1,4 @@
-# Docker & K8 
+# Docker & K8s 
 
 ## Commands
 Build the Docker image:
@@ -7,6 +7,8 @@ docker build -t [IMAGE_NAME]:[VERSION] .
 
 docker build -t hello-docker:1.0 .
 ```
+`-t` - 
+`.` - 
 <br>
 
 Check Docker images:
@@ -21,28 +23,19 @@ docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]
 
 docker run --name MyDockerApp hello-docker:1.0
 ```
+`--name` - 
 <br>
 
-Check all RUNNING Docker containers:
-```
-docker ps
-```
-Check all Docker containers:
-```
-docker ps -a
-```
-<br>
+| Check all RUNNING Docker containers  | Check all Docker containers  |
+|--------------------------------------|------------------------------|
+| `docker ps`                          | `docker ps -a`               |
 
-Stop the Docker container:
-```
-docker stop [CONTAINER_ID]
-```
-<br>
 
-Start Docker container:
-```
-docker start [CONTAINER_ID]
-```
+
+| Start Docker container        | Stop the Docker container    |
+|-------------------------------|------------------------------|
+| `docker start [CONTAINER_ID]` | `docker stop [CONTAINER_ID]` |
+
 <br>
 
 Before deleting an image delete the container that uses it:
@@ -66,7 +59,11 @@ docker image rm [IMAGE_ID]
 
 
 TO DO: Re-build image when change code
-
+```
+docker attach container
+```
+attached detaached container
+exposing ports `-p`
 ```
 docker system prune -a
 ```
@@ -79,6 +76,10 @@ docker-compose up
 <br>
 
 ## Videos
+
+### Udemy course
+- [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
+<br>
 
 ### Docker
 - [Intro to Docker [with Java Examples]](https://www.youtube.com/watch?v=FzwIs2jMESM)
@@ -93,9 +94,5 @@ docker-compose up
 - [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
 <br>
 
-### K8
+### K8s
 - [What is Kubernetes?](https://www.youtube.com/watch?v=IMOZCDhH7do&list=PLN_xGGp_EzELV3J2Bp-kNkmI2Vor338NI&index=9)
-<br>
-
-### Udemy course
-- [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
