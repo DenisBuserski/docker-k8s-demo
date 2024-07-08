@@ -1,7 +1,14 @@
 # Docker & K8s 
 
+![docker-and-k8s-logo](docker-and-k8s.jpeg)
+
 <details>
 <summary><h2>Docker</h2></summary>
+
+</details>
+
+<details>
+<summary><h2>K8s</h2></summary>
 
 </details>
 
@@ -46,6 +53,7 @@ docker attach container
 attached detaached container
 exposing ports `-p`
 add rm when run the container
+docker exec
 ```
 docker system prune -a
 ```
