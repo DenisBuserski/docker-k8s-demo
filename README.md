@@ -1,5 +1,10 @@
 # Docker & K8s 
 
+<details>
+<summary><h2>Docker</h2></summary>
+
+</details>
+
 ## Commands
 Build the Docker image:
 ```
