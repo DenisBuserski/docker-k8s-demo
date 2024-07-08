@@ -7,53 +7,27 @@ docker build -t [IMAGE_NAME]:[VERSION] .
 
 docker build -t hello-docker:1.0 .
 ```
-`-t` - 
-`.` - 
+`-t` - <br>
+`.` - <br>
 <br>
 
-Check Docker images:
-```
-docker images
-```
-<br>
+| `docker run`                                                | `docker start`                       | `docker stop`                |
+|-------------------------------------------------------------|--------------------------------------|------------------------------|
+| Creates and starts a new container from an image            | Starts an existing stopped container | Stop the Docker container    |
+| `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]` | `docker start [CONTAINER_ID]`        | `docker stop [CONTAINER_ID]` |
+| `--name` -                                                  |                                      |                              |
+| `docker run --name MyDockerApp hello-docker:1.0`            |                                      |                              |
 
-Run the Docker image:
-```
-docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]
+| Check all RUNNING Docker containers  | Check all Docker containers  | Check Docker images |
+|--------------------------------------|------------------------------|---------------------|
+| `docker ps`                          | `docker ps -a`               | `docker images`     |
 
-docker run --name MyDockerApp hello-docker:1.0
-```
-`--name` - 
-<br>
+| Delete container                     | Delete image                                               |
+|--------------------------------------|------------------------------------------------------------|
+|                                      | Before deleting an image delete the container that uses it |
+| `docker container rm [CONTAINER_ID]` | `docker image rm [IMAGE_ID]`                               |
+|                                      | `docker rmi [IMAGE_ID]`                                    |
 
-| Check all RUNNING Docker containers  | Check all Docker containers  |
-|--------------------------------------|------------------------------|
-| `docker ps`                          | `docker ps -a`               |
-
-
-
-| Start Docker container        | Stop the Docker container    |
-|-------------------------------|------------------------------|
-| `docker start [CONTAINER_ID]` | `docker stop [CONTAINER_ID]` |
-
-<br>
-
-Before deleting an image delete the container that uses it:
-```
-docker container rm [CONTAINER_ID]
-```
-Delete the image:
-```
-docker rmi [IMAGE_ID]
-docker image rm [IMAGE_ID]
-```
-<br>
-
-
-| `docker run`                                     | `docker start`                       |
-|--------------------------------------------------|--------------------------------------|
-| Creates and starts a new container from an image | Starts an existing stopped container |
- 
 <br>
 
 
@@ -92,6 +66,7 @@ docker-compose up
 - [Why Use Docker: Real-life Use Cases](https://www.youtube.com/watch?v=rcYswUg0J5k)
 - [Multi Container Docker Applications | A real-world example](https://www.youtube.com/watch?v=bX_tFv0YCqg)
 - [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
+- [Docker Tutorial for Beginners | Full Course [2021]](https://www.youtube.com/watch?v=p28piYY_wv8&t=3763s)
 <br>
 
 ### K8s
