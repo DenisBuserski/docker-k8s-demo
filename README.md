@@ -7,7 +7,7 @@ docker build -t [IMAGE_NAME]:[VERSION] .
 
 docker build -t hello-docker:1.0 .
 ```
-`-t` - <br>
+`-t` - Tag <br>
 `.` - <br>
 <br>
 
@@ -17,6 +17,8 @@ docker build -t hello-docker:1.0 .
 | `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]` | `docker start [CONTAINER_ID]`        | `docker stop [CONTAINER_ID]` |
 | `--name` -                                                  |                                      |                              |
 | `docker run --name MyDockerApp hello-docker:1.0`            |                                      |                              |
+| ``                                                          |                                      |                              |
+|                                                             |                                      |                              |
 
 | Check all RUNNING Docker containers  | Check all Docker containers  | Check Docker images |
 |--------------------------------------|------------------------------|---------------------|
@@ -30,7 +32,7 @@ docker build -t hello-docker:1.0 .
 
 <br>
 
-
+Volumes are folders on the host machine, which are mounted into containers / Bind mounts
 
 TO DO: Re-build image when change code
 ```
@@ -38,6 +40,7 @@ docker attach container
 ```
 attached detaached container
 exposing ports `-p`
+add rm when run the container
 ```
 docker system prune -a
 ```
