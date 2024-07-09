@@ -16,16 +16,18 @@ docker build -t hello-docker:1.0 .
 use for the build process. The `.` refers to the current directory, meaning Docker will look for a Dockerfile in the current
 directory and use the files in the current directory as the context for building the image. <br>
 
-| `docker run`                                                                                                                        | `docker start`                                    | `docker stop`                |
-|-------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------|
-| Creates and starts a new container from an image                                                                                    | Starts an existing stopped container              | Stop the Docker container    |
-| `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]`                                                                         | `docker start [CONTAINER_ID]`                     | `docker stop [CONTAINER_ID]` |
-| `--name` - Assign a custom name to the container being created                                                                      |                                                   |                              |
-| `docker run --name MyDockerApp hello-docker:1.0`                                                                                    |                                                   |                              |
-| `docker run -d --rm --name MyDockerApp hello-docker:1.0`                                                                            |                                                   |                              |
-| `-d` - Detached mode. This allows you to continue using the terminal for other commands while the container runs in the background. | Starts the container in detached mode by default. |                              |
-| `docker attach [CONTAINER_NAME]` - Connect your terminal to a running Docker container's standard input, output, and error streams. |                                                   |                              |
-| `-rm` - Automatically remove the container when it exits.                                                                           |                                                   |                              |
+| `docker run`                                                                                                                                                                                                            | `docker start`                                    | `docker stop`                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------|
+| Creates and starts a new container from an image                                                                                                                                                                        | Starts an existing stopped container              | Stop the Docker container    |
+| `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]`                                                                                                                                                             | `docker start [CONTAINER_ID]`                     | `docker stop [CONTAINER_ID]` |
+| `--name` - Assign a custom name to the container being created                                                                                                                                                          |                                                   |                              |
+| `docker run --name MyDockerApp hello-docker:1.0`                                                                                                                                                                        |                                                   |                              |
+| `docker run -d --rm --name MyDockerApp hello-docker:1.0`                                                                                                                                                                |                                                   |                              |
+| `-d` - Detached mode. This allows you to continue using the terminal for other commands while the container runs in the background.                                                                                     | Starts the container in detached mode by default. |                              |
+| `docker attach [CONTAINER_NAME]` - Connect your terminal to a running Docker container's standard input, output, and error streams.                                                                                     |                                                   |                              |
+| `-rm` - Automatically remove the container when it exits.                                                                                                                                                               |                                                   |                              |
+| `docker run -d -p 8080:80 --name MyDockerApp hello-docker:1.0`                                                                                                                                                          |                                                   |                              |
+| `-p 8080:80` - Publish a container's port(s) to the host. Allows you to make services running inside the container accessible from the host machine or network. Maps port 8080 on the host to port 80 in the container. |                                                   |                              |
 
 | Check all RUNNING Docker containers  | Check all Docker containers  | Check Docker images |
 |--------------------------------------|------------------------------|---------------------|
@@ -47,24 +49,11 @@ directory and use the files in the current directory as the context for building
 
 </details>
 
-
-
-
-
-
-
-
-
-
-
 <br>
 
 Volumes are folders on the host machine, which are mounted into containers / Bind mounts
 
-TO DO: Re-build image when change code
 
-
-exposing ports `-p`
 
 docker exec
 
