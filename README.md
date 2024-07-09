@@ -5,58 +5,69 @@
 <details>
 <summary><h2>Docker</h2></summary>
 
+Build the Docker image from a Dockerfile:
+```
+docker build -t [IMAGE_NAME]:[VERSION] .
+
+docker build -t hello-docker:1.0 .
+```
+`-t` - Flag used to tag the image with a name and optionally a version or tag. Name - `hello-docker`, tag - `1.0` <br>
+`.` - Specifies the build context. The build context is the set of files located in the specified directory, which Docker will
+use for the build process. The `.` refers to the current directory, meaning Docker will look for a Dockerfile in the current
+directory and use the files in the current directory as the context for building the image. <br>
+
+| `docker run`                                                                                                                        | `docker start`                                    | `docker stop`                |
+|-------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------|
+| Creates and starts a new container from an image                                                                                    | Starts an existing stopped container              | Stop the Docker container    |
+| `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]`                                                                         | `docker start [CONTAINER_ID]`                     | `docker stop [CONTAINER_ID]` |
+| `--name` - Assign a custom name to the container being created                                                                      |                                                   |                              |
+| `docker run --name MyDockerApp hello-docker:1.0`                                                                                    |                                                   |                              |
+| `docker run -d --rm --name MyDockerApp hello-docker:1.0`                                                                            |                                                   |                              |
+| `-d` - Detached mode. This allows you to continue using the terminal for other commands while the container runs in the background. | Starts the container in detached mode by default. |                              |
+| `docker attach [CONTAINER_NAME]` - Connect your terminal to a running Docker container's standard input, output, and error streams. |                                                   |                              |
+| `-rm` - Automatically remove the container when it exits.                                                                           |                                                   |                              |
+
+| Check all RUNNING Docker containers  | Check all Docker containers  | Check Docker images |
+|--------------------------------------|------------------------------|---------------------|
+| `docker ps`                          | `docker ps -a`               | `docker images`     |
+
+| Delete container                     | Delete image                                               | Remove all unused images and containers |
+|--------------------------------------|------------------------------------------------------------|-----------------------------------------|
+|                                      | Before deleting an image delete the container that uses it |                                         |
+| `docker container rm [CONTAINER_ID]` | `docker image rm [IMAGE_ID]`                               | `docker system prune -a`                |
+|                                      | `docker rmi [IMAGE_ID]`                                    |                                         |
+
+
+
 </details>
+
 
 <details>
 <summary><h2>K8s</h2></summary>
 
 </details>
 
-## Commands
-Build the Docker image:
-```
-docker build -t [IMAGE_NAME]:[VERSION] .
 
-docker build -t hello-docker:1.0 .
-```
-`-t` - Tag <br>
-`.` - <br>
-<br>
 
-| `docker run`                                                | `docker start`                       | `docker stop`                |
-|-------------------------------------------------------------|--------------------------------------|------------------------------|
-| Creates and starts a new container from an image            | Starts an existing stopped container | Stop the Docker container    |
-| `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]` | `docker start [CONTAINER_ID]`        | `docker stop [CONTAINER_ID]` |
-| `--name` -                                                  |                                      |                              |
-| `docker run --name MyDockerApp hello-docker:1.0`            |                                      |                              |
-| ``                                                          |                                      |                              |
-|                                                             |                                      |                              |
 
-| Check all RUNNING Docker containers  | Check all Docker containers  | Check Docker images |
-|--------------------------------------|------------------------------|---------------------|
-| `docker ps`                          | `docker ps -a`               | `docker images`     |
 
-| Delete container                     | Delete image                                               |
-|--------------------------------------|------------------------------------------------------------|
-|                                      | Before deleting an image delete the container that uses it |
-| `docker container rm [CONTAINER_ID]` | `docker image rm [IMAGE_ID]`                               |
-|                                      | `docker rmi [IMAGE_ID]`                                    |
+
+
+
+
+
 
 <br>
 
 Volumes are folders on the host machine, which are mounted into containers / Bind mounts
 
 TO DO: Re-build image when change code
-```
-docker attach container
-```
-attached detaached container
+
+
 exposing ports `-p`
-add rm when run the container
+
 docker exec
-```
-docker system prune -a
-```
+
 ```
 docker-compose down
 ```
