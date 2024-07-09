@@ -60,7 +60,7 @@ docker run -v container_dir
 Named volumes
 docker run -v name:container_dir
 
-
+Docker port demo-docker-with-spring
 
 docker exec my_container echo "Hello, World!"
 
@@ -93,6 +93,8 @@ docker-compose up
 - [Docker Tutorial for Beginners | Full Course [2021]](https://www.youtube.com/watch?v=p28piYY_wv8&t=3763s)
 - [Docker Volumes explained in 6 minutes](https://www.youtube.com/watch?v=p2PH_YPCsis)
 - [Docker Volumes Explained](https://www.youtube.com/watch?v=n4LRpnqsXIo)
+- [How to create and use a Docker volume](https://www.youtube.com/watch?v=_MlSdlP6nwc)
+- [Docker Volumes Explained (PostgreSQL example)](https://www.youtube.com/watch?v=G-5c25DYnfI)
 <br>
 
 ### K8s
