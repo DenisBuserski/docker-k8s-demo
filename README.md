@@ -33,11 +33,12 @@ directory and use the files in the current directory as the context for building
 |--------------------------------------|------------------------------|---------------------|
 | `docker ps`                          | `docker ps -a`               | `docker images`     |
 
-| Delete container                     | Delete image                                               | Remove all unused images and containers |
-|--------------------------------------|------------------------------------------------------------|-----------------------------------------|
-|                                      | Before deleting an image delete the container that uses it |                                         |
-| `docker container rm [CONTAINER_ID]` | `docker image rm [IMAGE_ID]`                               | `docker system prune -a`                |
-|                                      | `docker rmi [IMAGE_ID]`                                    |                                         |
+| Description                             | Command                              |                         | Addition                                                   |
+|-----------------------------------------|--------------------------------------|-------------------------|------------------------------------------------------------|
+| Delete container                        | `docker container rm [CONTAINER_ID]` |                         |                                                            |
+| Delete image                            | `docker image rm [IMAGE_ID]`         | `docker rmi [IMAGE_ID]` | Before deleting an image delete the container that uses it |
+| Remove all unused images and containers | `docker system prune -a`             |                         |                                                            |
+| Remove volume                           | `docker volume rm`                   | `docker volume prune`   |                                                            |         
 
 
 
@@ -52,10 +53,17 @@ directory and use the files in the current directory as the context for building
 <br>
 
 Volumes are folders on the host machine, which are mounted into containers / Bind mounts
+Host volume
+docker run -v host_dir:container_dir
+Anonymous volume
+docker run -v container_dir
+Named volumes
+docker run -v name:container_dir
 
 
 
-docker exec
+docker exec my_container echo "Hello, World!"
+
 
 ```
 docker-compose down
@@ -83,6 +91,8 @@ docker-compose up
 - [Multi Container Docker Applications | A real-world example](https://www.youtube.com/watch?v=bX_tFv0YCqg)
 - [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
 - [Docker Tutorial for Beginners | Full Course [2021]](https://www.youtube.com/watch?v=p28piYY_wv8&t=3763s)
+- [Docker Volumes explained in 6 minutes](https://www.youtube.com/watch?v=p2PH_YPCsis)
+- [Docker Volumes Explained](https://www.youtube.com/watch?v=n4LRpnqsXIo)
 <br>
 
 ### K8s
