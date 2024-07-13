@@ -41,6 +41,8 @@ directory and use the files in the current directory as the context for building
 | Remove volume                           | `docker volume rm`                   | `docker volume prune`   |                                                            |         
 
 Docker volumes
+- Anonymous volume
+- Named volume
 
 
 TODO: 
