@@ -40,7 +40,21 @@ directory and use the files in the current directory as the context for building
 | Remove all unused images and containers | `docker system prune -a`             |                         |                                                            |
 | Remove volume                           | `docker volume rm`                   | `docker volume prune`   |                                                            |         
 
+Docker volumes
 
+
+TODO: 
+Add volumes to demo-docker-with-spring
+Add port(-p) to demo-docker-with-spring 
+Try `docker exec my_container echo "Hello, World!"`
+
+```
+docker-compose up
+```
+
+```
+docker-compose down
+```
 
 </details>
 
@@ -60,20 +74,11 @@ docker run -v container_dir
 Named volumes
 docker run -v name:container_dir
 
-Docker port demo-docker-with-spring
-
-docker exec my_container echo "Hello, World!"
 
 
-```
-docker-compose down
-```
-```
-docker-compose up
-```
 <br>
 
-## Videos
+## Learning materials
 
 ### Udemy course
 - [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
@@ -95,9 +100,12 @@ docker-compose up
 - [Docker Volumes Explained](https://www.youtube.com/watch?v=n4LRpnqsXIo)
 - [How to create and use a Docker volume](https://www.youtube.com/watch?v=_MlSdlP6nwc)
 - [Docker Volumes Explained (PostgreSQL example)](https://www.youtube.com/watch?v=G-5c25DYnfI)
+- [Docker Volumes Demo || Docker Tutorial 13](https://www.youtube.com/watch?v=SBUCYJgg4Mk)
 <br>
 
 ### K8s
 - [What is Kubernetes?](https://www.youtube.com/watch?v=IMOZCDhH7do&list=PLN_xGGp_EzELV3J2Bp-kNkmI2Vor338NI&index=9)
 - [Kubernetes Explained in 100 Seconds](https://www.youtube.com/watch?v=PziYflu8cB8)
 - [Kubernetes Explained in 6 Minutes | k8s Architecture](https://www.youtube.com/watch?v=TlHvYWVUZyc&list=WL&index=51)
+- [Docker vs Kubernetes vs Docker Swarm | Comparison in 5 mins](https://www.youtube.com/watch?v=9_s3h_GVzZc)
+- [What is Kubernetes | Kubernetes explained in 15 mins](https://www.youtube.com/watch?v=VnvRFRk_51k)
