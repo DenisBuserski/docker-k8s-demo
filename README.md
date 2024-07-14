@@ -40,6 +40,12 @@ directory and use the files in the current directory as the context for building
 | Remove all unused images and containers | `docker system prune -a`             |                         |                                                            |
 | Remove volume                           | `docker volume rm`                   | `docker volume prune`   |                                                            |         
 
+To follow the logs of a container in realtime use:
+```
+docker logs -f [CONTAINER_NAME]
+```
+<br>
+
 Docker has 2 options for containers to store files on the host machine, so that the files are persisted even after the 
 container stops: 
 
@@ -111,6 +117,7 @@ TODO:
 - [What is Docker Volume | How to create Volumes | What is Bind Mount | Docker Storage](https://www.youtube.com/watch?v=VOK06Q4QqvE)
 - [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
 - [Docker Compose & Docker Volumes | Docker](https://www.youtube.com/watch?v=41o4RJxfCZM)
+- [Docker Crash Course #11 - Docker Compose](https://www.youtube.com/watch?v=TSySwrQcevM)
 <br>
 
 ### K8s
