@@ -54,30 +54,27 @@ container stops:
 |                                                                    |                                                                                                                                                                                                                          |
 |                                                                    |                                                                                                                                                                                                                          |
 
-
-
-TODO: 
-Add volumes to demo-docker-with-spring
-Add port(-p) to demo-docker-with-spring 
-Try `docker exec my_container echo "Hello, World!"`
-
+Run `docker-compose.yml`:
 ```
 docker-compose up
 ```
 
+Stop:
 ```
 docker-compose down
 ```
 
-</details>
 
 
-<details>
-<summary><h2>K8s</h2></summary>
+TODO:
+Add volumes to demo-docker-with-spring
+Docker Swarm
 
-</details>
+TODO: 
 
-<br>
+Add port(-p) to demo-docker-with-spring 
+Try `docker exec my_container echo "Hello, World!"`
+
 
 Volumes are folders on the host machine, which are mounted into containers / Bind mounts
 Host volume
@@ -87,7 +84,14 @@ docker run -v container_dir
 Named volumes
 docker run -v name:container_dir
 
+</details>
 
+<details>
+<summary><h2>K8s</h2></summary>
+
+TODO:
+
+</details>
 
 <br>
 
@@ -116,6 +120,7 @@ docker run -v name:container_dir
 - [Docker Volumes Demo || Docker Tutorial 13](https://www.youtube.com/watch?v=SBUCYJgg4Mk)
 - [Docker Crash Course #10 - Volumes](https://www.youtube.com/watch?v=Wh4BcFFr6Fc)
 - [What is Docker Volume | How to create Volumes | What is Bind Mount | Docker Storage](https://www.youtube.com/watch?v=VOK06Q4QqvE)
+- [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
 <br>
 
 ### K8s
