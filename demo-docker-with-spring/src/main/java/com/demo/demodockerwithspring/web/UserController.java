@@ -16,7 +16,11 @@ public class UserController {
 
     @PostMapping("/create")
     public String createUser() {
-        this.userServiceImpl.createUser("Denis", 25);
+        this.userServiceImpl.createUser("User-1", 25);
+        this.userServiceImpl.createUser("User-2", 30);
+        this.userServiceImpl.createUser("User-3", 35);
+        this.userServiceImpl.createUser("User-4", 45);
+        this.userServiceImpl.createUser("User-5", 50);
         return "Created!";
     }
 }

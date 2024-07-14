@@ -40,9 +40,20 @@ directory and use the files in the current directory as the context for building
 | Remove all unused images and containers | `docker system prune -a`             |                         |                                                            |
 | Remove volume                           | `docker volume rm`                   | `docker volume prune`   |                                                            |         
 
-Docker volumes
-- Anonymous volume
-- Named volume
+Docker has 2 options for containers to store files on the host machine, so that the files are persisted even after the 
+container stops: 
+
+| Volumes                                                            | Bind mounts                                                                                                                                                                                                              |
+|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Completely handled by Docker                                       | When you use a bind mount in Docker, you are linking a directory on the host filesystem to a directory in the container                                                                                                  |
+| One container writes to the storage while another reads from it    | If you modify, create, or delete files in the directory on the host, these changes will be immediately visible inside the container in the corresponding directory                                                       |
+| Anonymous volume                                                   | If you modify, create, or delete files from within the container in the mounted directory, these changes will be reflected on the host filesystem                                                                        |
+| Named volume                                                       | Allows for real-time collaboration between the host and the container, which is particularly useful for development environments where code changes need to be tested immediately without rebuilding the container image |
+|                                                                    |                                                                                                                                                                                                                          |
+|                                                                    |                                                                                                                                                                                                                          |
+|                                                                    |                                                                                                                                                                                                                          |
+|                                                                    |                                                                                                                                                                                                                          |
+
 
 
 TODO: 
@@ -103,6 +114,8 @@ docker run -v name:container_dir
 - [How to create and use a Docker volume](https://www.youtube.com/watch?v=_MlSdlP6nwc)
 - [Docker Volumes Explained (PostgreSQL example)](https://www.youtube.com/watch?v=G-5c25DYnfI)
 - [Docker Volumes Demo || Docker Tutorial 13](https://www.youtube.com/watch?v=SBUCYJgg4Mk)
+- [Docker Crash Course #10 - Volumes](https://www.youtube.com/watch?v=Wh4BcFFr6Fc)
+- [What is Docker Volume | How to create Volumes | What is Bind Mount | Docker Storage](https://www.youtube.com/watch?v=VOK06Q4QqvE)
 <br>
 
 ### K8s
