@@ -43,23 +43,24 @@ directory and use the files in the current directory as the context for building
 Docker has 2 options for containers to store files on the host machine, so that the files are persisted even after the 
 container stops: 
 
-| Volumes                                                            | Bind mounts                                                                                                                                                                                                              |
-|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Completely handled by Docker                                       | When you use a bind mount in Docker, you are linking a directory on the host filesystem to a directory in the container                                                                                                  |
-| One container writes to the storage while another reads from it    | If you modify, create, or delete files in the directory on the host, these changes will be immediately visible inside the container in the corresponding directory                                                       |
-| Anonymous volume                                                   | If you modify, create, or delete files from within the container in the mounted directory, these changes will be reflected on the host filesystem                                                                        |
-| Named volume                                                       | Allows for real-time collaboration between the host and the container, which is particularly useful for development environments where code changes need to be tested immediately without rebuilding the container image |
-|                                                                    |                                                                                                                                                                                                                          |
-|                                                                    |                                                                                                                                                                                                                          |
-|                                                                    |                                                                                                                                                                                                                          |
-|                                                                    |                                                                                                                                                                                                                          |
+| Volumes                                                                                         | Bind mounts(Host volume)                                                                                                                                                                                                   |
+|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Completely handled by Docker.                                                                   | When you use a bind mount in Docker, you are linking a directory on the host filesystem to a directory in the container.                                                                                                   |
+|                                                                                                 | If you modify, create, or delete files in the directory on the host, these changes will be immediately visible inside the container in the corresponding directory.                                                        |
+|                                                                                                 | If you modify, create, or delete files from within the container in the mounted directory, these changes will be reflected on the host filesystem.                                                                         |
+| One container writes to the storage while another reads from it.                                | Allows for real-time collaboration between the host and the container, which is particularly useful for development environments where code changes need to be tested immediately without rebuilding the container image.  |
+| Named volume - Have specific name assigned to it.                                               | `docker run -v host_dir:container_dir`                                                                                                                                                                                     |
+| `docker run -v name:container_dir`                                                              |                                                                                                                                                                                                                            |
+| Anonymous volume - Not given a specific name. Docker assigns them an unique ID automatically.   |                                                                                                                                                                                                                            |
+| `docker run -v container_dir`                                                                   |                                                                                                                                                                                                                            |
+|                                                                                                 |                                                                                                                                                                                                                            |
 
-Run `docker-compose.yml`:
+Start multiple containers `docker-compose.yml`:
 ```
 docker-compose up
 ```
 
-Stop:
+Stop the containers:
 ```
 docker-compose down
 ```
@@ -69,20 +70,8 @@ docker-compose down
 TODO:
 Add volumes to demo-docker-with-spring
 Docker Swarm
-
-TODO: 
-
 Add port(-p) to demo-docker-with-spring 
 Try `docker exec my_container echo "Hello, World!"`
-
-
-Volumes are folders on the host machine, which are mounted into containers / Bind mounts
-Host volume
-docker run -v host_dir:container_dir
-Anonymous volume
-docker run -v container_dir
-Named volumes
-docker run -v name:container_dir
 
 </details>
 
@@ -121,6 +110,7 @@ TODO:
 - [Docker Crash Course #10 - Volumes](https://www.youtube.com/watch?v=Wh4BcFFr6Fc)
 - [What is Docker Volume | How to create Volumes | What is Bind Mount | Docker Storage](https://www.youtube.com/watch?v=VOK06Q4QqvE)
 - [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
+- [Docker Compose & Docker Volumes | Docker](https://www.youtube.com/watch?v=41o4RJxfCZM)
 <br>
 
 ### K8s
