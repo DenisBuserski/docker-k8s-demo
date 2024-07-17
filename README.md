@@ -12,7 +12,9 @@ docker build -t [IMAGE_NAME]:[VERSION] .
 docker build -t hello-docker:1.0 .
 ```
 `-t` - Flag used to tag the image with a name and optionally a version or tag. Name - `hello-docker`, tag - `1.0` <br>
-`.` - Specifies the build context. The build context is the set of files located in the specified directory, which Docker will use for the build process. The `.` refers to the current directory, meaning Docker will look for a Dockerfile in the current directory and use the files in the current directory as the context for building the image. <br>
+`.` - Specifies the build context. The build context is the set of files located in the specified directory, which Docker 
+will use for the build process. The `.` refers to the current directory, meaning Docker will look for a Dockerfile in the 
+current directory and use the files in the current directory as the context for building the image. <br>
 
 | `docker run`                                                                                                                                                                                                            | `docker start`                                    | `docker stop`                |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------|
@@ -31,12 +33,12 @@ docker build -t hello-docker:1.0 .
 |-------------------------------------|------------------------------|----------------------|------------------------------------------------|
 | `docker ps`                         | `docker ps -a`               | `docker images`      | `docker logs -f [CONTAINER_NAME]`              |
 
-| Description                                     | Command                                    |                                      | Addition                                                                                |
-|-------------------------------------------------|--------------------------------------------|--------------------------------------|-----------------------------------------------------------------------------------------| 
-| Delete container                                | `docker container rm [CONTAINER_ID]`       |                                      |                                                                                         |
-| Delete image                                    | `docker image rm [IMAGE_ID]`               | `docker rmi [IMAGE_ID]`              | Before deleting an image delete the container that uses it                              |
-| Remove all unused images and containers         | `docker system prune -a`                   |                                      |                                                                                         |                                                                                                                                                                                                
-| Remove volume                                   | `docker volume rm`                         | `docker volume prune`                |                                                                                         |                                                                                                                                                                                                                                                           
+| Description                                     | Command                                    |                                      | Addition                                                   |
+|-------------------------------------------------|--------------------------------------------|--------------------------------------|------------------------------------------------------------| 
+| Delete container                                | `docker container rm [CONTAINER_ID]`       |                                      |                                                            |
+| Delete image                                    | `docker image rm [IMAGE_ID]`               | `docker rmi [IMAGE_ID]`              | Before deleting an image delete the container that uses it |
+| Remove all unused images and containers         | `docker system prune -a`                   |                                      |                                                            |                                                                                                                                                                                                
+| Remove volume                                   | `docker volume rm`                         | `docker volume prune`                |                                                            |                                                                                                                                                                                                                                                           
 
 
 <br>
@@ -74,12 +76,29 @@ Docker Swarm
 Add port(-p) to demo-docker-with-spring 
 Try `docker exec my_container echo "Hello, World!"`
 
+docker.yml
+version:
+services
+backend: dockerfile
+ports:
+database:
+environment
+
 </details>
 
 <details>
 <summary><h2>K8s</h2></summary>
 
 TODO:
+Pods
+Node
+Cluster - Set of nodes
+Master node
+Worker node
+Kublet
+Control plane
+Minikube
+Kubectl - Kubernetes Command Line Tool
 
 </details>
 
@@ -113,6 +132,7 @@ TODO:
 - [Docker Compose will BLOW your MIND!! (a tutorial)](https://www.youtube.com/watch?v=DM65_JyGxCo)
 - [Docker Compose & Docker Volumes | Docker](https://www.youtube.com/watch?v=41o4RJxfCZM)
 - [Docker Crash Course #11 - Docker Compose](https://www.youtube.com/watch?v=TSySwrQcevM)
+- [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
 <br>
 
 ### K8s
@@ -121,3 +141,4 @@ TODO:
 - [Kubernetes Explained in 6 Minutes | k8s Architecture](https://www.youtube.com/watch?v=TlHvYWVUZyc&list=WL&index=51)
 - [Docker vs Kubernetes vs Docker Swarm | Comparison in 5 mins](https://www.youtube.com/watch?v=9_s3h_GVzZc)
 - [What is Kubernetes | Kubernetes explained in 15 mins](https://www.youtube.com/watch?v=VnvRFRk_51k)
+- [Kubernetes Tutorial For Beginners - Learn Kubernetes](https://www.youtube.com/watch?v=yznvWW_L7AA&list=WL&index=104)
