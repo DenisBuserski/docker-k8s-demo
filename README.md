@@ -133,6 +133,7 @@ Kubectl - Kubernetes Command Line Tool
 - [Docker Compose & Docker Volumes | Docker](https://www.youtube.com/watch?v=41o4RJxfCZM)
 - [Docker Crash Course #11 - Docker Compose](https://www.youtube.com/watch?v=TSySwrQcevM)
 - [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
+- [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
 <br>
 
 ### K8s
