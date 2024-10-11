@@ -145,3 +145,5 @@ Kubectl - Kubernetes Command Line Tool
 - [Kubernetes Tutorial For Beginners - Learn Kubernetes](https://www.youtube.com/watch?v=yznvWW_L7AA&list=WL&index=104)
 - [Kubernetes Tutorial - Kubernetes Architecture Explained](https://www.youtube.com/watch?v=1vnA13v8PcA&list=WL&index=83)
 - [Първи стъпки с Kubernetes - Димитър Захариев](https://www.youtube.com/watch?v=-zu7qioThP4)
+
+- [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
