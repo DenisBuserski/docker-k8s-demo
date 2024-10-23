@@ -108,7 +108,6 @@ Kubectl - Kubernetes Command Line Tool
 
 ### Udemy course
 - [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
-<br>
 
 ### Docker
 - [Intro to Docker [with Java Examples]](https://www.youtube.com/watch?v=FzwIs2jMESM)
@@ -134,7 +133,6 @@ Kubectl - Kubernetes Command Line Tool
 - [Docker Crash Course #11 - Docker Compose](https://www.youtube.com/watch?v=TSySwrQcevM)
 - [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
-<br>
 
 ### K8s
 - [What is Kubernetes?](https://www.youtube.com/watch?v=IMOZCDhH7do&list=PLN_xGGp_EzELV3J2Bp-kNkmI2Vor338NI&index=9)
