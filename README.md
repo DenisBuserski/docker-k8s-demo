@@ -86,11 +86,14 @@ environment
 
 </details>
 
+
 <details>
 <summary><h2>K8s</h2></summary>
 
+
+
 TODO:
-Pods
+`Pods` - 
 Node
 Cluster - Set of nodes
 Master node - API server Scheduler Controller mangager etcd
@@ -105,7 +108,6 @@ Kube-Proxy
 
 </details>
 
-<br>
 
 ## Learning materials
 
@@ -147,5 +149,6 @@ Kube-Proxy
 - [Kubernetes Tutorial - Kubernetes Architecture Explained](https://www.youtube.com/watch?v=1vnA13v8PcA&list=WL&index=83)
 - [Първи стъпки с Kubernetes - Димитър Захариев](https://www.youtube.com/watch?v=-zu7qioThP4)
 - [you need to learn Kubernetes RIGHT NOW!!](https://www.youtube.com/watch?v=7bA0gTroJjw&list=WL)
+- [Intro to Kubernetes | Container Tools For Beginners | Orchestration Tools | Great Learning](https://www.youtube.com/watch?v=WUU85wXv4mA&list=WL&index=75&t=673s)
 
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
