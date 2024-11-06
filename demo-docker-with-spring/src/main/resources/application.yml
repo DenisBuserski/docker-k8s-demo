@@ -3,13 +3,13 @@ spring:
     name: demo-docker-with-spring
 
   datasource:
-    url: jdbc:mariadb://localhost:3307/test_docker_mariadb?useSSL=false&requireSSL=true
+    url: jdbc:mariadb://localhost:3307/test_docker_mariadb?useSSL=false&createDatabaseIfNotExist=true&requireSSL=true
     username: root
     password: root
     driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
     hibernate:
-        ddl-auto: create
+        ddl-auto: create-drop
     show-sql: true
     database-platform: org.hibernate.dialect.MariaDBDialect

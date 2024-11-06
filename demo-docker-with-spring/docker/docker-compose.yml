@@ -9,10 +9,11 @@ services:
       - MYSQL_PASSWORD=root
     ports:
       - "3307:3306"
-        ### 3307 ->
-        ### 3306 ->
-    volumes:
-      - mariadb_data_volume:/var/lib/mysql
-
-volumes:
-  mariadb_data_volume:
+        ### 3307 -> Port on Host machine
+        ### 3306 -> Port inside the container
+        ### Connect to MariaDB on Host machine using port=3307
+#    volumes:
+#      - mariadb_data_volume:/var/lib/mysql
+#
+#volumes:
+#  mariadb_data_volume:

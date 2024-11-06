@@ -20,13 +20,13 @@ current directory and use the files in the current directory as the context for 
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------|
 | Creates and starts a new container from an image                                                                                                                                                                        | Starts an existing stopped container              | Stop the Docker container    |
 | `docker run --name [CONTAINER_NAME] [IMAGE_NAME]:[VERSION]`                                                                                                                                                             | `docker start [CONTAINER_ID]`                     | `docker stop [CONTAINER_ID]` |
-| `--name` - Assign a custom name to the container being created                                                                                                                                                          |                                                   |                              |
 | `docker run --name MyDockerApp hello-docker:1.0`                                                                                                                                                                        |                                                   |                              |
 | `docker run -d --rm --name MyDockerApp hello-docker:1.0`                                                                                                                                                                |                                                   |                              |
+| `docker run -d -p 8080:80 --name MyDockerApp hello-docker:1.0`                                                                                                                                                          |                                                   |                              |
+| `--name` - Assign a custom name to the container being created                                                                                                                                                          |                                                   |                              |
 | `-d` - Detached mode. This allows you to continue using the terminal for other commands while the container runs in the background.                                                                                     | Starts the container in detached mode by default. |                              |
 | `docker attach [CONTAINER_NAME]` - Connect your terminal to a running Docker container's standard input, output, and error streams.                                                                                     |                                                   |                              |
 | `-rm` - Automatically remove the container when it exits.                                                                                                                                                               |                                                   |                              |
-| `docker run -d -p 8080:80 --name MyDockerApp hello-docker:1.0`                                                                                                                                                          |                                                   |                              |
 | `-p 8080:80` - Publish a container's port(s) to the host. Allows you to make services running inside the container accessible from the host machine or network. Maps port 8080 on the host to port 80 in the container. |                                                   |                              |
 
 | Check all RUNNING Docker containers | Check all Docker containers  | Check Docker images  | Follow the logs of a container in realtime use |
@@ -37,12 +37,12 @@ current directory and use the files in the current directory as the context for 
 |-------------------------------------------------|--------------------------------------------|--------------------------------------|------------------------------------------------------------| 
 | Delete container                                | `docker container rm [CONTAINER_ID]`       |                                      |                                                            |
 | Delete image                                    | `docker image rm [IMAGE_ID]`               | `docker rmi [IMAGE_ID]`              | Before deleting an image delete the container that uses it |
-| Remove all unused images and containers         | `docker system prune -a`                   |                                      |                                                            |                                                                                                                                                                                                
+| Remove all unused images and containers         | `docker system prune -a`                   |                                      |                                                            |
 | Remove volume                                   | `docker volume rm`                         | `docker volume prune`                |                                                            |                                                                                                                                                                                                                                                           
-
 
 <br>
 
+`_TO_DO_`
 Docker has 2 options for containers to store files on the host machine, so that the files are persisted even after the 
 container stops: 
 
@@ -58,6 +58,8 @@ container stops:
 | `docker run -v container_dir`                                                                   |                                                                                                                                                                                                                            |
 |                                                                                                 |                                                                                                                                                                                                                            |
 
+<br>
+
 Start multiple containers `docker-compose.yml`:
 ```
 docker-compose up
@@ -67,22 +69,6 @@ Stop the containers:
 ```
 docker-compose down
 ```
-
-
-
-TODO:
-Add volumes to demo-docker-with-spring
-Docker Swarm
-Add port(-p) to demo-docker-with-spring 
-Try `docker exec my_container echo "Hello, World!"`
-
-docker.yml
-version:
-services
-backend: dockerfile
-ports:
-database:
-environment
 
 </details>
 
