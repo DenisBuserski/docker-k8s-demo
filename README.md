@@ -95,7 +95,8 @@ Kube-Proxy
 </details>
 
 
-## Learning materials
+<details>
+<summary><h2>Learning materials</h2></summary>
 
 ### Udemy course
 - [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
@@ -138,3 +139,9 @@ Kube-Proxy
 - [Intro to Kubernetes | Container Tools For Beginners | Orchestration Tools | Great Learning](https://www.youtube.com/watch?v=WUU85wXv4mA&list=WL&index=75&t=673s)
 
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
+  
+</details>
+
+
+
+
