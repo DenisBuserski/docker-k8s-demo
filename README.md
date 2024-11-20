@@ -76,21 +76,33 @@ docker-compose down
 <details>
 <summary><h2>K8s</h2></summary>
 
-
+Kubernetes cluster
+- `Master node`
+  - `API server`
+  - `Controller manager` - Keeps track of what is happening in the cluster
+  - `Scheduler`
+  - `etcd`
+- `Worker nodes` - Has a `Kublet` process running on it. Has containers on it. On worker nodes the applciations are running
+`Node` - Virtual or physical machine
+Virtual Network
 
 TODO:
-`Pods` - 
-Node
+`Pod` - Smallest unit in K8s. Usually 1 application per `Pod`. Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
+
+
+
 Cluster - Set of nodes
-Master node - API server Scheduler Controller mangager etcd
-Worker node
-Kublet
+
+`Ingress`
+
 Control plane
-Minikube
-Kubectl - Kubernetes Command Line Tool
+`Minikube` - Master and Worker run on 1 node
+`Kubectl` - CLI for K8s cluster
 Helm
-Kubelet
+
 Kube-Proxy
+`ArgoCd`
+Vault
 
 </details>
 
@@ -137,6 +149,7 @@ Kube-Proxy
 - [Първи стъпки с Kubernetes - Димитър Захариев](https://www.youtube.com/watch?v=-zu7qioThP4)
 - [you need to learn Kubernetes RIGHT NOW!!](https://www.youtube.com/watch?v=7bA0gTroJjw&list=WL)
 - [Intro to Kubernetes | Container Tools For Beginners | Orchestration Tools | Great Learning](https://www.youtube.com/watch?v=WUU85wXv4mA&list=WL&index=75&t=673s)
+- [Kubernetes Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=s_o8dwzRlu4&list=WL&index=63&t=290s)
 
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
   
