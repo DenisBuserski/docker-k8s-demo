@@ -76,6 +76,44 @@ docker-compose down
 <details>
 <summary><h2>K8s</h2></summary>
 
+![kubernetes-architecture](kubernetes-architecture.png)
+
+`Kubernetes cluster` - Consists of a `Control plane` and 1 or more `Worker nodes`. Every cluster needs at least one `Worker node` in 
+order to run `Pods`. The `Worker nodes` host the `Pods` that are the components of the application workload. <br>
+
+`Control plane` components make global decisions about the cluster(Example - scheduling), as well as detecting and responding to 
+cluster events(Example - Starting up a new `Pod` when a `Deployment's replicas`(Copies of `Pods`, ensuring availability, scalability, 
+and fault tolerance by maintaining identical instances) field is unsatisfied).
+- `kube-apiserver` - Exposes an HTTP API that lets end users, different parts of your cluster, and external components communicate with one another.
+- `etcd` - Consistent and highly-available key value store used as Kubernetes' backing store for all cluster data.
+- `kube-scheduler` - Watches for newly created `Pods` with no assigned `Node`, and selects a `Node` for them to run on.
+- `kube-controller-manager` - Component that runs controller processes. 
+- `cloud-contrller-manager` - Integrates with underlying cloud provider.
+
+`Node` is a worker machine in K8s. The `Node` components run on every node, maintaining running `Pods` and providing the K8s runtime environment.
+- `kubelet` - Makes sure that containers are running in a `Pod`.
+- `kube-proxy`
+  - Implements part of the `K8s Service`(Way to expose an application running on a set of `Pods` as a network service) concept.
+  - Maintains network rules on `Nodes`. These network rules allow network communication to your `Pods` from network sessions inside or outside of your cluster.
+  - 
+- `Container runtime` - Software responsible for running containers.
+
+As pods come and go, services help the other pods "find out and keep track of which IP address to connect to."
+Cluster
+- `Pod`
+- reprsents a set of runnign containtres in your cluster 
+  - Smallest unit in K8s. 
+  - The `Pod` holds 1 or more containers
+  - Usually 1 application per `Pod`
+  - Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
+  - Runs on a `Worker node`. The `Worker node` runs the containers in the application. The `node` is a machine(virtual instance)л
+  - Inside the `Worker node` there is Proxy/Config which control the network access
+  - can have multiple Worker nodes
+
+Worker node are controlled by the Master node
+
+
+
 Kubernetes cluster
 - `Master node`
   - `API server`
@@ -87,7 +125,7 @@ Kubernetes cluster
 Virtual Network
 
 TODO:
-`Pod` - Smallest unit in K8s. Usually 1 application per `Pod`. Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
+
 
 
 
@@ -154,6 +192,13 @@ Vault
 - [Kubernetes Roadmap - Complete Step-by-Step Learning Path](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=WL&index=83)
 
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
+- [What is Kubernetes?](https://cloud.google.com/learn/what-is-kubernetes)
+- [How to explain Kubernetes in plain English](https://enterprisersproject.com/article/2017/10/how-explain-kubernetes-plain-english)
+- [Overview](https://kubernetes.io/docs/concepts/overview/)
+- [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
+- [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
+- [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
+- [Cluster Architecture](https://kubernetes.io/docs/concepts/architecture/)
   
 </details>
 
