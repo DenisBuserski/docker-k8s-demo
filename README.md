@@ -90,7 +90,7 @@ and fault tolerance by maintaining identical instances) field is unsatisfied).
 - `kube-controller-manager` - Component that runs controller processes. 
 - `cloud-contrller-manager` - Integrates with underlying cloud provider.
 
-`Node` is a worker machine in K8s. The `Node` components run on every node, maintaining running `Pods` and providing the K8s runtime environment.
+`Node` is a worker machine in K8s. The `Node` components run on every node, maintaining running `Pods` and providing the K8s runtime environment. can be either a physical or virtual machine
 - `kubelet` - Makes sure that containers are running in a `Pod`.
 - `kube-proxy`
   - Implements part of the `K8s Service`(Way to expose an application running on a set of `Pods` as a network service) concept.
@@ -101,7 +101,7 @@ and fault tolerance by maintaining identical instances) field is unsatisfied).
 As pods come and go, services help the other pods "find out and keep track of which IP address to connect to."
 Cluster
 - `Pod`
-- reprsents a set of runnign containtres in your cluster 
+  - Represents a set of runnign containtres in your cluster 
   - Smallest unit in K8s. 
   - The `Pod` holds 1 or more containers
   - Usually 1 application per `Pod`
@@ -112,7 +112,11 @@ Cluster
 
 Worker node are controlled by the Master node
 
-
+`Deployments` - describe the desired state of your application, like which images to use and the number of Pod replicas
+`Serivices` - abstract way to expose an application running on a set of Pods as a network service.
+`Ingress` - manages external access to the services in a cluster
+`Namespace` - Namespaces help split a Kubernetes cluster into sub-clusters, making it possible to divide resources between different projects or teams.
+`Lables & Selectors` -  powerful tools that allow you to organize and select subsets of objects, like Pods, based on key-value pairs for more precise resource management.
 
 Kubernetes cluster
 - `Master node`
@@ -131,7 +135,7 @@ TODO:
 
 Cluster - Set of nodes
 
-`Ingress`
+
 
 Control plane
 `Minikube` - Master and Worker run on 1 node
@@ -194,6 +198,7 @@ Vault
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
 - [What is Kubernetes?](https://cloud.google.com/learn/what-is-kubernetes)
 - [How to explain Kubernetes in plain English](https://enterprisersproject.com/article/2017/10/how-explain-kubernetes-plain-english)
+- [What Is Kubernetes? What You Need To Know As A Developer](https://medium.com/@rphilogene/what-is-kubernetes-what-you-need-to-know-as-a-developer-674af25e3947)
 - [Overview](https://kubernetes.io/docs/concepts/overview/)
 - [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
 - [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
