@@ -78,7 +78,14 @@ docker-compose down
 
 ![kubernetes-architecture](kubernetes-architecture.png)
 
-`Kubernetes cluster` - Consists of a `Control plane` and 1 or more `Worker nodes`. Every cluster needs at least one `Worker node` in 
+Features:
+- High availability - No downtime
+- Scalability - High performance
+- Disaster recovery - Backup and restore
+
+`Kubernetes cluster`
+- Cluster - Set of nodes
+Consists of a `Control plane` and 1 or more `Worker nodes`. Every cluster needs at least one `Worker node` in 
 order to run `Pods`. The `Worker nodes` host the `Pods` that are the components of the application workload. <br>
 
 `Control plane` components make global decisions about the cluster(Example - scheduling), as well as detecting and responding to 
@@ -100,21 +107,33 @@ and fault tolerance by maintaining identical instances) field is unsatisfied).
 
 As pods come and go, services help the other pods "find out and keep track of which IP address to connect to."
 Cluster
-- `Pod`
+
+`Pod`
+- Smallest unit in K8s.
+- Holds 1 or more containers.
+- Usually 1 application per pod.
+- Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
+- Can die very easily.
+- `Service` 
+  - Abstract way to expose an application running on a set of pods as a network service. 
+  - Has a permanent IP address that can be attached to each `Pod`.
+  - Will send the request to the `Pod`, which is less busy
+- `Ingress` - Manages external access to the services in a cluster. Before the `Service` is reached it goes through the `Ingress`
+- The lifecycle of a `Pod` and `Service` are not connected.
   - Represents a set of runnign containtres in your cluster 
-  - Smallest unit in K8s. 
-  - The `Pod` holds 1 or more containers
-  - Usually 1 application per `Pod`
-  - Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
+ 
+`Configmap` - External configuration of the application(Example - DB_URL)
+`Secret` - Identical to `Configmap`, but is used to store secret data(Example - DB_USER / DB_PASSWORD)
+
   - Runs on a `Worker node`. The `Worker node` runs the containers in the application. The `node` is a machine(virtual instance)л
   - Inside the `Worker node` there is Proxy/Config which control the network access
   - can have multiple Worker nodes
 
 Worker node are controlled by the Master node
 
-`Deployments` - describe the desired state of your application, like which images to use and the number of Pod replicas
-`Serivices` - abstract way to expose an application running on a set of Pods as a network service.
-`Ingress` - manages external access to the services in a cluster
+`Deployments` - describe the desired state of your application, like which images to use and the number of Pod replicas / Blueprint for app pods
+`Serivices` - 
+
 `Namespace` - Namespaces help split a Kubernetes cluster into sub-clusters, making it possible to divide resources between different projects or teams.
 `Lables & Selectors` -  powerful tools that allow you to organize and select subsets of objects, like Pods, based on key-value pairs for more precise resource management.
 
@@ -128,23 +147,26 @@ Kubernetes cluster
 `Node` - Virtual or physical machine
 Virtual Network
 
-TODO:
+`Volumes` - attaches a physical hard drive can be local or cloud
+
+K8s doesn't manage data persistence 
+DBs cant be replicated via Deployment, because it has a state
+`StatefulSet` - for statefull apps or dbs
+DBs are ofter hosted outside the K8s cluster
 
 
 
-
-Cluster - Set of nodes
 
 
 
 Control plane
 `Minikube` - Master and Worker run on 1 node
 `Kubectl` - CLI for K8s cluster
-Helm
+`Helm`
 
 Kube-Proxy
 `ArgoCd`
-Vault
+`Vault`
 
 </details>
 
