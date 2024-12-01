@@ -76,75 +76,103 @@ docker-compose down
 <details>
 <summary><h2>K8s</h2></summary>
 
-![kubernetes-architecture](kubernetes-architecture.png)
-
-Features:
+### Features:
 - High availability - No downtime
 - Scalability - High performance
 - Disaster recovery - Backup and restore
 
-`Kubernetes cluster`
+### Kubernetes architecture
+![kubernetes-architecture](kubernetes-architecture.png)
+
+`K8s cluster`
 - Cluster - Set of nodes
-Consists of a `Control plane` and 1 or more `Worker nodes`. Every cluster needs at least one `Worker node` in 
-order to run `Pods`. The `Worker nodes` host the `Pods` that are the components of the application workload. <br>
+- Consists of a `Master node` and 1 or more `Worker nodes`.
+  - `Node` is a worker machine in K8s. 
+    - Its components run on every node, maintaining running pods and providing the K8s runtime environment.
+    - Can be either a physical or virtual machine.
+    - Has multiple pods on it.
+    - `kubelet` - Ensures that the containers defined in a Pod are running and healthy.
+    - `kube-proxy`
+      - Implements the networking aspects of the `Service` concept.
+      - Service - Abstract way to expose an application running on a set of pods as a network service.
+        - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without 
+          worrying about individual pod IP changes. 
+        - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and 
+          connect to the appropriate IP addresses, even as individual pods come and go.
+        - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
+        - `Ingress` 
+          - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
+            to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on 
+            defined rules.
+      - Maintains network rules on nodes, which allow internal and external communication to the pods.
+    - `Container runtime`- Software responsible for running containers.
+  - `Worker node`
+    - Every cluster needs at least 1 worker node in order to run pods.
+    - Does the actual work, runs the containers that make up the application, managed by the `kubelet`.
+    - Controlled by the Master node.
+    - Hosts the pods that are the components of the application workload.
+    - `Pod`
+      - Smallest unit in K8s.
+      - Holds 1 or more containers.
+      - Represents a set of running containers in the cluster.
+      - Usually 1 application per pod.
+      - Each pod gets its own unique IP address, which changes if the pod is recreated.
+      - Can die very easily.
+      - The lifecycle of a Pod and a Service are independent of each other.
+  - `Master node`
+    - Hosts the K8s `Control plane` components.
+    - Need less resources than `Worker nodes`.
+    - Control plane components make global decisions about the cluster, as well as detecting and responding to cluster events.
+      - `kube-apiserver`
+        - Exposes an HTTP API that serves as the primary communication hub for end users, cluster components, and external systems.
+        - If you want to deploy a new application in a K8s cluster you interact with the API server using UI(K8s Dashboard) 
+          or CLI(`kubectl`).
+        - Cluster gateway.
+        - Acts as a gatekeeper for authentication.
+        - Good for security, because there is only 1 entry point into the cluster.
+      - `kube-scheduler`
+        - Watches for newly created Pods that have no assigned Node, and selects an appropriate Node for them to run on 
+          based on resource availability and other scheduling constraints.
+        - Only decides on which Node a new Pod should be scheduled, the actual the process of running the Pod is handled by the `kublet`.
+      - `kube-controller-manager` 
+        - Detects and manages changes in the cluster's desired state.
+        - If a pod dies or becomes unhealthy, the Controller manager is responsible for ensuring that the desired state is 
+          restored. It does this by creating a new pod to replace the missing pod, and the `kube-scheduler` will then 
+          schedule the new pod onto an appropriate node.
+      - `etcd`
+        - Store all cluster state data.
+        - The cluster brain.
+        - Key value store.
+        - How does the `kube-scheduler` know what resources are available?
+        - How does the `kube-contrller-manager` know that the cluster state change?
+        - Does not store Application data.
+      - `cloud-contrller-manager`
+        - Interacts with the underlying cloud provider's API to manage cloud-specific resources, such as load balancers, storage, and networking.
 
-`Control plane` components make global decisions about the cluster(Example - scheduling), as well as detecting and responding to 
-cluster events(Example - Starting up a new `Pod` when a `Deployment's replicas`(Copies of `Pods`, ensuring availability, scalability, 
-and fault tolerance by maintaining identical instances) field is unsatisfied).
-- `kube-apiserver` - Exposes an HTTP API that lets end users, different parts of your cluster, and external components communicate with one another.
-- `etcd` - Consistent and highly-available key value store used as Kubernetes' backing store for all cluster data.
-- `kube-scheduler` - Watches for newly created `Pods` with no assigned `Node`, and selects a `Node` for them to run on.
-- `kube-controller-manager` - Component that runs controller processes. 
-- `cloud-contrller-manager` - Integrates with underlying cloud provider.
+`Minikube`
+- `Master node` and `Worker node` run on 1 node. Useful for local test.
+- 1 node K8s cluster.
 
-`Node` is a worker machine in K8s. The `Node` components run on every node, maintaining running `Pods` and providing the K8s runtime environment. can be either a physical or virtual machine
-- `kubelet` - Makes sure that containers are running in a `Pod`.
-- `kube-proxy`
-  - Implements part of the `K8s Service`(Way to expose an application running on a set of `Pods` as a network service) concept.
-  - Maintains network rules on `Nodes`. These network rules allow network communication to your `Pods` from network sessions inside or outside of your cluster.
-  - 
-- `Container runtime` - Software responsible for running containers.
+  
+    
 
-As pods come and go, services help the other pods "find out and keep track of which IP address to connect to."
-Cluster
-
-`Pod`
-- Smallest unit in K8s.
-- Holds 1 or more containers.
-- Usually 1 application per pod.
-- Each `Pod` gets its own IP address(New IP address on re-creation of the `Pod`).
-- Can die very easily.
-- `Service` 
-  - Abstract way to expose an application running on a set of pods as a network service. 
-  - Has a permanent IP address that can be attached to each `Pod`.
-  - Will send the request to the `Pod`, which is less busy
-- `Ingress` - Manages external access to the services in a cluster. Before the `Service` is reached it goes through the `Ingress`
-- The lifecycle of a `Pod` and `Service` are not connected.
-  - Represents a set of runnign containtres in your cluster 
+  
+  
  
 `Configmap` - External configuration of the application(Example - DB_URL)
 `Secret` - Identical to `Configmap`, but is used to store secret data(Example - DB_USER / DB_PASSWORD)
 
-  - Runs on a `Worker node`. The `Worker node` runs the containers in the application. The `node` is a machine(virtual instance)л
-  - Inside the `Worker node` there is Proxy/Config which control the network access
-  - can have multiple Worker nodes
 
-Worker node are controlled by the Master node
+
+
 
 `Deployments` - describe the desired state of your application, like which images to use and the number of Pod replicas / Blueprint for app pods
-`Serivices` - 
+
 
 `Namespace` - Namespaces help split a Kubernetes cluster into sub-clusters, making it possible to divide resources between different projects or teams.
 `Lables & Selectors` -  powerful tools that allow you to organize and select subsets of objects, like Pods, based on key-value pairs for more precise resource management.
 
-Kubernetes cluster
-- `Master node`
-  - `API server`
-  - `Controller manager` - Keeps track of what is happening in the cluster
-  - `Scheduler`
-  - `etcd`
-- `Worker nodes` - Has a `Kublet` process running on it. Has containers on it. On worker nodes the applciations are running
-`Node` - Virtual or physical machine
+
 Virtual Network
 
 `Volumes` - attaches a physical hard drive can be local or cloud
@@ -154,17 +182,7 @@ DBs cant be replicated via Deployment, because it has a state
 `StatefulSet` - for statefull apps or dbs
 DBs are ofter hosted outside the K8s cluster
 
-
-
-
-
-
-Control plane
-`Minikube` - Master and Worker run on 1 node
-`Kubectl` - CLI for K8s cluster
 `Helm`
-
-Kube-Proxy
 `ArgoCd`
 `Vault`
 
@@ -178,6 +196,7 @@ Kube-Proxy
 - [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/?couponCode=LETSLEARNNOWPP)
 
 ### Docker
+#### Videos
 - [Intro to Docker [with Java Examples]](https://www.youtube.com/watch?v=FzwIs2jMESM)
 - [Docker in IntelliJ IDEA](https://www.youtube.com/watch?v=FzwIs2jMESM)
 - [100+ Docker Concepts you Need to Know](https://www.youtube.com/watch?v=rIrNIzy6U_g)
@@ -203,6 +222,7 @@ Kube-Proxy
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
 
 ### K8s
+#### Videos
 - [What is Kubernetes?](https://www.youtube.com/watch?v=IMOZCDhH7do&list=PLN_xGGp_EzELV3J2Bp-kNkmI2Vor338NI&index=9)
 - [Kubernetes Explained in 100 Seconds](https://www.youtube.com/watch?v=PziYflu8cB8)
 - [Kubernetes Explained in 6 Minutes | k8s Architecture](https://www.youtube.com/watch?v=TlHvYWVUZyc&list=WL&index=51)
@@ -217,6 +237,7 @@ Kube-Proxy
 - [Deploying Java Applications with Docker and Kubernetes | DevOps Project](https://www.youtube.com/watch?v=0GgBi8yNQT4&list=WL&index=67&t=433s)
 - [Kubernetes Roadmap - Complete Step-by-Step Learning Path](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=WL&index=83)
 
+#### Read
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
 - [What is Kubernetes?](https://cloud.google.com/learn/what-is-kubernetes)
 - [How to explain Kubernetes in plain English](https://enterprisersproject.com/article/2017/10/how-explain-kubernetes-plain-english)
