@@ -100,10 +100,9 @@ docker-compose down
         - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and 
           connect to the appropriate IP addresses, even as individual pods come and go.
         - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
-        - `Ingress` 
-          - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
-            to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on 
-            defined rules.
+        - `Ingress` - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
+          to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on 
+          defined rules.
       - Maintains network rules on nodes, which allow internal and external communication to the pods.
     - `Container runtime`- Software responsible for running containers.
   - `Worker node`
@@ -146,28 +145,18 @@ docker-compose down
         - How does the `kube-scheduler` know what resources are available?
         - How does the `kube-contrller-manager` know that the cluster state change?
         - Does not store Application data.
-      - `cloud-contrller-manager`
-        - Interacts with the underlying cloud provider's API to manage cloud-specific resources, such as load balancers, storage, and networking.
+      - `cloud-contrller-manager` - Interacts with the underlying cloud provider's API to manage cloud-specific resources, 
+        such as load balancers, storage, and networking.
 
-`Minikube`
-- `Master node` and `Worker node` run on 1 node. Useful for local test.
-- 1 node K8s cluster.
+`Minikube` - 1 node K8s cluster. `Master node` and `Worker node` run on 1 node. Useful for local test. <br>
+`Configmap` - Used to store non-sensitive, external configuration data for an application (Example - DB_URL). <br>
+`Secret` - Similar to `Configmap`, but is used to store sensitive data such as passwords, API keys, or tokens(Example - DB_USER / DB_PASSWORD). <br>
+`Deployment`
+- Describe the desired state of your application(Example - Which images to use, Number of pod replicas) 
+- Blueprint for app pods 
+- Manages a ReplicaSet
 
-  
-    
-
-  
-  
- 
-`Configmap` - External configuration of the application(Example - DB_URL)
-`Secret` - Identical to `Configmap`, but is used to store secret data(Example - DB_USER / DB_PASSWORD)
-
-
-
-
-
-`Deployments` - describe the desired state of your application, like which images to use and the number of Pod replicas / Blueprint for app pods
-
+`ReplicaSet` - Maintain the desired number of pod replicas(Number of identical copies of a Pod).
 
 `Namespace` - Namespaces help split a Kubernetes cluster into sub-clusters, making it possible to divide resources between different projects or teams.
 `Lables & Selectors` -  powerful tools that allow you to organize and select subsets of objects, like Pods, based on key-value pairs for more precise resource management.
