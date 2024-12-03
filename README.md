@@ -152,28 +152,62 @@ docker-compose down
 `Configmap` - Used to store non-sensitive, external configuration data for an application (Example - DB_URL). <br>
 `Secret` - Similar to `Configmap`, but is used to store sensitive data such as passwords, API keys, or tokens(Example - DB_USER / DB_PASSWORD). <br>
 `Deployment`
-- Describe the desired state of your application(Example - Which images to use, Number of pod replicas) 
-- Blueprint for app pods 
-- Manages a ReplicaSet
+- Describe the desired state of your application(Example - Which images to use, Number of pod replicas).
+- Blueprint for app pods.
+- Manages a `ReplicaSet`(Ensures the desired number of pod replicas are running in the cluster at all times).
 
-`ReplicaSet` - Maintain the desired number of pod replicas(Number of identical copies of a Pod).
-
-`Namespace` - Namespaces help split a Kubernetes cluster into sub-clusters, making it possible to divide resources between different projects or teams.
-`Lables & Selectors` -  powerful tools that allow you to organize and select subsets of objects, like Pods, based on key-value pairs for more precise resource management.
-
-
-Virtual Network
-
+TODO
 `Volumes` - attaches a physical hard drive can be local or cloud
 
-K8s doesn't manage data persistence 
+K8s doesn't manage data persistence
 DBs cant be replicated via Deployment, because it has a state
 `StatefulSet` - for statefull apps or dbs
 DBs are ofter hosted outside the K8s cluster
 
+
+
 `Helm`
 `ArgoCd`
 `Vault`
+
+
+
+
+The configuration file has 3 parts:
+- Metadata - `metadata:`
+  - Contains identifying information about the resource, such as its name, `Namespace`(Help isolate workloads, making 
+    it easier to apply resource quotas, access controls, and policies specific to each namespace), and `Labels`().
+- Specification - `spec:`
+  - Describes the desired state of the resource.
+  - Attributes are specific to the kind.
+- Status
+  - Automatically generated and updated by K8s. 
+  - K8s continuously compares the Desired state(From the `spec`) with the Actual state(Stored in `etcd`) and takes actions to reconcile any differences.
+
+`deployment.yml`
+```
+apiVersion: apps/v1  #For each component there is a different apiVersion
+kind: Deployment
+metadata:
+  name:
+  labels:
+spec:
+  replicas:
+  selector:
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 </details>
 
