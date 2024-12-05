@@ -185,26 +185,41 @@ The configuration file has 3 parts:
   - K8s continuously compares the Desired state(From the `spec`) with the Actual state(Stored in `etcd`) and takes actions to reconcile any differences.
 
 `deployment.yml`
-```
+```yaml
 apiVersion: apps/v1  #For each component there is a different apiVersion
 kind: Deployment
 metadata:
-  name:
+  name: java-deployment
   labels:
+    app: java
 spec:
-  replicas:
+  replicas: 1
   selector:
+    matchLabels:
+      app: java
+  template:
+    metadata:
+      labels:
+        app: java
+    spec:
+      containers:
+      - name: java
+        image: java
+        ports:
+        - containerPort: 8080
+        env:
+        - name: JAVA_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: java-secret
+              key: java-root-username
+        - name: JAVA_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: java-secret
+              key: java-root-password
 
 ```
-
-
-
-
-
-
-
-
-
 
 
 
