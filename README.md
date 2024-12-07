@@ -94,7 +94,7 @@ docker-compose down
     - `kubelet` - Ensures that the containers defined in a Pod are running and healthy.
     - `kube-proxy`
       - Implements the networking aspects of the `Service` concept.
-      - Service - Abstract way to expose an application running on a set of pods as a network service.
+      - `Service` - Abstract way to expose an application running on a set of pods as a network service.
         - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without 
           worrying about individual pod IP changes. 
         - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and 
@@ -175,8 +175,13 @@ DBs are ofter hosted outside the K8s cluster
 
 The configuration file has 3 parts:
 - Metadata - `metadata:`
-  - Contains identifying information about the resource, such as its name, `Namespace`(Help isolate workloads, making 
-    it easier to apply resource quotas, access controls, and policies specific to each namespace), and `Labels`().
+  - Contains identifying information about the resource, such as its name, `Namespace`, and `Labels`.
+  - `Namespace` - Help isolate workloads, making it easier to apply resource quotas, access controls, and policies specific to each namespace
+    - `kube-system`
+    - `kube-public`
+    - `kube-node-lease`
+    - `default`
+  - `Labels` 
 - Specification - `spec:`
   - Describes the desired state of the resource.
   - Attributes are specific to the kind.
@@ -190,6 +195,7 @@ apiVersion: apps/v1  #For each component there is a different apiVersion
 kind: Deployment
 metadata:
   name: java-deployment
+  namespace: my-namespace
   labels:
     app: java
 spec:
@@ -274,6 +280,7 @@ spec:
 - [Kubernetes Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=s_o8dwzRlu4&list=WL&index=63&t=290s)
 - [Deploying Java Applications with Docker and Kubernetes | DevOps Project](https://www.youtube.com/watch?v=0GgBi8yNQT4&list=WL&index=67&t=433s)
 - [Kubernetes Roadmap - Complete Step-by-Step Learning Path](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=WL&index=83)
+- [Do NOT Learn Kubernetes Without Knowing These Concepts...](https://www.youtube.com/watch?v=wXuSqFJVNQA&list=WL&index=18&t=1s)
 
 #### Read
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
