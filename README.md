@@ -155,6 +155,9 @@ docker-compose down
 - Describe the desired state of your application(Example - Which images to use, Number of pod replicas).
 - Blueprint for app pods.
 - Manages a `ReplicaSet`(Ensures the desired number of pod replicas are running in the cluster at all times).
+`Helm` - Package manager for K8s. `Helm chart` - bundle of yaml files, can be pusshed to repo
+
+
 
 TODO
 `Volumes` - attaches a physical hard drive can be local or cloud
@@ -166,7 +169,7 @@ DBs are ofter hosted outside the K8s cluster
 
 
 
-`Helm`
+
 `ArgoCd`
 `Vault`
 
@@ -281,6 +284,7 @@ spec:
 - [Deploying Java Applications with Docker and Kubernetes | DevOps Project](https://www.youtube.com/watch?v=0GgBi8yNQT4&list=WL&index=67&t=433s)
 - [Kubernetes Roadmap - Complete Step-by-Step Learning Path](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=WL&index=83)
 - [Do NOT Learn Kubernetes Without Knowing These Concepts...](https://www.youtube.com/watch?v=wXuSqFJVNQA&list=WL&index=18&t=1s)
+- [Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours]](https://www.youtube.com/watch?v=X48VuDVv0do&list=WL&index=12&t=1s)
 
 #### Read
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
