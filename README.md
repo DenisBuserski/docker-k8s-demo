@@ -95,14 +95,11 @@ docker-compose down
     - `kube-proxy`
       - Implements the networking aspects of the `Service` concept.
       - `Service` - Abstract way to expose an application running on a set of pods as a network service.
-        - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without 
-          worrying about individual pod IP changes. 
-        - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and 
-          connect to the appropriate IP addresses, even as individual pods come and go.
+        - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without worrying about individual pod IP changes. 
+        - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and connect to the appropriate IP addresses, even as individual pods come and go.
         - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
         - `Ingress` - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
-          to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on 
-          defined rules.
+          to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on defined rules.
       - Maintains network rules on nodes, which allow internal and external communication to the pods.
     - `Container runtime`- Software responsible for running containers.
   - `Worker node`
@@ -117,7 +114,7 @@ docker-compose down
       - Usually 1 application per pod.
       - Each pod gets its own unique IP address, which changes if the pod is recreated.
       - Can die very easily.
-      - The lifecycle of a Pod and a Service are independent of each other.
+      - The lifecycle of a `Pod` and a `Service` are independent of each other.
   - `Master node`
     - Hosts the K8s `Control plane` components.
     - Need less resources than `Worker nodes`.
@@ -148,19 +145,23 @@ docker-compose down
       - `cloud-contrller-manager` - Interacts with the underlying cloud provider's API to manage cloud-specific resources, 
         such as load balancers, storage, and networking.
 
+K8s objects
+- `Pod`
+- `Deployment`
+  - Describe the desired state of your application(Example - Which images to use, Number of pod replicas).
+  - Blueprint for app pods.
+  - Controls multiple pods.
+  - Manages a `ReplicaSet`(Ensures the desired number of pod replicas are running in the cluster at all times).
+- `Services`
+- `Volumes` - attaches a physical hard drive can be local or cloud
+
 `Minikube` - 1 node K8s cluster. `Master node` and `Worker node` run on 1 node. Useful for local test. <br>
 `Configmap` - Used to store non-sensitive, external configuration data for an application (Example - DB_URL). <br>
 `Secret` - Similar to `Configmap`, but is used to store sensitive data such as passwords, API keys, or tokens(Example - DB_USER / DB_PASSWORD). <br>
-`Deployment`
-- Describe the desired state of your application(Example - Which images to use, Number of pod replicas).
-- Blueprint for app pods.
-- Manages a `ReplicaSet`(Ensures the desired number of pod replicas are running in the cluster at all times).
 `Helm` - Package manager for K8s. `Helm chart` - bundle of yaml files, can be pusshed to repo
+`ArgoCd`
+`Vault`
 
-
-
-TODO
-`Volumes` - attaches a physical hard drive can be local or cloud
 
 K8s doesn't manage data persistence
 DBs cant be replicated via Deployment, because it has a state
@@ -170,8 +171,7 @@ DBs are ofter hosted outside the K8s cluster
 
 
 
-`ArgoCd`
-`Vault`
+
 
 
 
@@ -229,9 +229,6 @@ spec:
               key: java-root-password
 
 ```
-
-
-
 
 </details>
 
