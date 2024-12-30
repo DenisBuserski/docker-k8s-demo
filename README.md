@@ -85,16 +85,16 @@ docker-compose down
 ![kubernetes-architecture](kubernetes-architecture.png)
 
 `K8s cluster`
-- Cluster - Set of nodes
+- `Cluster` - Set of nodes
 - Consists of a `Master node` and 1 or more `Worker nodes`.
   - `Node` is a worker machine in K8s. 
     - Its components run on every node, maintaining running pods and providing the K8s runtime environment.
     - Can be either a physical or virtual machine.
     - Has multiple pods on it.
     - `kubelet` - Ensures that the containers defined in a Pod are running and healthy.
-    - `kube-proxy`
-      - Implements the networking aspects of the `Service` concept.
-      - `Service` - Abstract way to expose an application running on a set of pods as a network service.
+    - `kube-proxy` - Implements the networking aspects of the `Service` concept.
+      - `Service`
+        - Abstract way to expose an application running on a set of pods as a network service.
         - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without worrying about individual pod IP changes. 
         - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and connect to the appropriate IP addresses, even as individual pods come and go.
         - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
@@ -146,7 +146,6 @@ docker-compose down
         such as load balancers, storage, and networking.
 
 K8s objects
-- `Pod`
 - `Deployment`
   - Describe the desired state of your application(Example - Which images to use, Number of pod replicas).
   - Blueprint for app pods.
@@ -154,25 +153,29 @@ K8s objects
   - Manages a `ReplicaSet`(Ensures the desired number of pod replicas are running in the cluster at all times).
 - `Services`
 - `Volumes` - attaches a physical hard drive can be local or cloud
+K8s doesn't manage data persistence
+  DBs cant be replicated via Deployment, because it has a state
+  `StatefulSet` - for statefull apps or dbs
+  DBs are ofter hosted outside the K8s cluster
 
 `Minikube` - 1 node K8s cluster. `Master node` and `Worker node` run on 1 node. Useful for local test. <br>
 `Configmap` - Used to store non-sensitive, external configuration data for an application (Example - DB_URL). <br>
 `Secret` - Similar to `Configmap`, but is used to store sensitive data such as passwords, API keys, or tokens(Example - DB_USER / DB_PASSWORD). <br>
-`Helm` - Package manager for K8s. `Helm chart` - bundle of yaml files, can be pusshed to repo
-`ArgoCd`
-`Vault`
 
-
-K8s doesn't manage data persistence
-DBs cant be replicated via Deployment, because it has a state
-`StatefulSet` - for statefull apps or dbs
-DBs are ofter hosted outside the K8s cluster
+`Helm`
+- Package manager for K8s. 
+- `Helm chart` - bundle of `.yaml` files, can be pushed to Helm repository.
 
 
 
 
 
 
+
+
+
+
+imperative vs declarative
 
 
 
@@ -192,7 +195,7 @@ The configuration file has 3 parts:
   - Automatically generated and updated by K8s. 
   - K8s continuously compares the Desired state(From the `spec`) with the Actual state(Stored in `etcd`) and takes actions to reconcile any differences.
 
-`deployment.yml`
+`deployment.yaml`
 ```yaml
 apiVersion: apps/v1  #For each component there is a different apiVersion
 kind: Deployment
@@ -229,6 +232,12 @@ spec:
               key: java-root-password
 
 ```
+
+`ArgoCd`
+- Continuous delivery tool.
+- Provides a visual dashboard for managing K8s applications.
+- Constantly checks for changes in the Git repository and automatically syncs those changes to the K8s cluster.
+
 
 </details>
 
@@ -282,6 +291,13 @@ spec:
 - [Kubernetes Roadmap - Complete Step-by-Step Learning Path](https://www.youtube.com/watch?v=S8eX0MxfnB4&list=WL&index=83)
 - [Do NOT Learn Kubernetes Without Knowing These Concepts...](https://www.youtube.com/watch?v=wXuSqFJVNQA&list=WL&index=18&t=1s)
 - [Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours]](https://www.youtube.com/watch?v=X48VuDVv0do&list=WL&index=12&t=1s)
+- [ArgoCD Tutorial for Beginners | GitOps CD for Kubernetes](https://www.youtube.com/watch?v=MeU5_k9ssrs&list=WL&index=1)
+- [HashiCorp Vault Explained in 180 seconds](https://www.youtube.com/watch?v=nG8fCdWkLzc)
+- [Hashicorp vault 101](https://www.youtube.com/watch?v=8UBJbhzbHp4)
+- [What is Helm in Kubernetes? Helm and Helm Charts explained | Kubernetes Tutorial 23](https://www.youtube.com/watch?v=-ykwb1d0DXU)
+- [Helm and Helm Charts Explained - Helm Tutorial for Beginners](https://www.youtube.com/watch?v=w51lDVuRWuk)
+- [What is Helm?](https://www.youtube.com/watch?v=fy8SHvNZGeE)
+- [How to Create Helm Charts - The Ultimate Guide](https://www.youtube.com/watch?v=jUYNS90nq8U&t=47s)
 
 #### Read
 - [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
@@ -293,7 +309,8 @@ spec:
 - [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
 - [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
 - [Cluster Architecture](https://kubernetes.io/docs/concepts/architecture/)
-  
+ 
+ 
 </details>
 
 
