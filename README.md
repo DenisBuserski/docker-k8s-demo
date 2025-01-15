@@ -273,6 +273,7 @@ spec:
 - [Docker Crash Course #11 - Docker Compose](https://www.youtube.com/watch?v=TSySwrQcevM)
 - [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
+- [Docker Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=pg19Z8LL06w&list=WL&index=63&t=3s)
 
 ### K8s
 #### Videos
