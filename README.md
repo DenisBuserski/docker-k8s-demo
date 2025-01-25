@@ -274,6 +274,7 @@ spec:
 - [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
 - [Docker Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=pg19Z8LL06w&list=WL&index=63&t=3s)
+- [18 Weird and Wonderful ways I use Docker](https://www.youtube.com/watch?v=RUqGlWr5LBA&list=WL&index=92)
 
 ### K8s
 #### Videos
