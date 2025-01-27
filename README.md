@@ -275,6 +275,7 @@ spec:
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
 - [Docker Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=pg19Z8LL06w&list=WL&index=63&t=3s)
 - [18 Weird and Wonderful ways I use Docker](https://www.youtube.com/watch?v=RUqGlWr5LBA&list=WL&index=92)
+- [Използване на Docker за локална разработка на уеб приложения](https://www.youtube.com/watch?v=JHsNBNGNNCk&list=WL&index=53&t=2256s)
 
 ### K8s
 #### Videos
