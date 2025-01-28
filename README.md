@@ -76,74 +76,83 @@ docker-compose down
 <details>
 <summary><h2>K8s</h2></summary>
 
+`K8s` - Tool that helps us to run and manage applications in containers. 
+
 ### Features:
 - High availability - No downtime
 - Scalability - High performance
-- Disaster recovery - Backup and restore
+- Self-Healing Capabilities – It provides rescheduling, replacing, and restarting the containers that are dead
 
 ### Kubernetes architecture
 ![kubernetes-architecture](kubernetes-architecture.png)
 
-`K8s cluster`
-- `Cluster` - Set of nodes
-- Consists of a `Master node` and 1 or more `Worker nodes`.
-  - `Node` is a worker machine in K8s. 
-    - Its components run on every node, maintaining running pods and providing the K8s runtime environment.
-    - Can be either a physical or virtual machine.
-    - Has multiple pods on it.
-    - `kubelet` - Ensures that the containers defined in a Pod are running and healthy.
-    - `kube-proxy` - Implements the networking aspects of the `Service` concept.
-      - `Service`
-        - Abstract way to expose an application running on a set of pods as a network service.
-        - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without worrying about individual pod IP changes. 
-        - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and connect to the appropriate IP addresses, even as individual pods come and go.
-        - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
-        - `Ingress` - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
-          to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on defined rules.
-      - Maintains network rules on nodes, which allow internal and external communication to the pods.
-    - `Container runtime`- Software responsible for running containers.
-  - `Worker node`
-    - Every cluster needs at least 1 worker node in order to run pods.
-    - Does the actual work, runs the containers that make up the application, managed by the `kubelet`.
-    - Controlled by the Master node.
-    - Hosts the pods that are the components of the application workload.
-    - `Pod`
-      - Smallest unit in K8s.
-      - Holds 1 or more containers.
-      - Represents a set of running containers in the cluster.
-      - Usually 1 application per pod.
-      - Each pod gets its own unique IP address, which changes if the pod is recreated.
-      - Can die very easily.
-      - The lifecycle of a `Pod` and a `Service` are independent of each other.
-  - `Master node`
-    - Hosts the K8s `Control plane` components.
-    - Need less resources than `Worker nodes`.
-    - Control plane components make global decisions about the cluster, as well as detecting and responding to cluster events.
-      - `kube-apiserver`
-        - Exposes an HTTP API that serves as the primary communication hub for end users, cluster components, and external systems.
-        - If you want to deploy a new application in a K8s cluster you interact with the API server using UI(K8s Dashboard) 
-          or CLI(`kubectl`).
-        - Cluster gateway.
-        - Acts as a gatekeeper for authentication.
-        - Good for security, because there is only 1 entry point into the cluster.
-      - `kube-scheduler`
-        - Watches for newly created Pods that have no assigned Node, and selects an appropriate Node for them to run on 
-          based on resource availability and other scheduling constraints.
-        - Only decides on which Node a new Pod should be scheduled, the actual the process of running the Pod is handled by the `kublet`.
-      - `kube-controller-manager` 
-        - Detects and manages changes in the cluster's desired state.
-        - If a pod dies or becomes unhealthy, the Controller manager is responsible for ensuring that the desired state is 
-          restored. It does this by creating a new pod to replace the missing pod, and the `kube-scheduler` will then 
-          schedule the new pod onto an appropriate node.
-      - `etcd`
-        - Store all cluster state data.
-        - The cluster brain.
-        - Key value store.
-        - How does the `kube-scheduler` know what resources are available?
-        - How does the `kube-contrller-manager` know that the cluster state change?
-        - Does not store Application data.
-      - `cloud-contrller-manager` - Interacts with the underlying cloud provider's API to manage cloud-specific resources, 
-        such as load balancers, storage, and networking.
+
+
+`K8s cluster` <br>
+`Cluster` 
+- Set of nodes
+- Consists of a `Master node` and 1 or more `Worker nodes`. <br>
+<br>
+- `Node` is a worker machine in K8s. 
+  - Its components run on every node, maintaining running pods and providing the K8s runtime environment.
+  - Can be either a physical or virtual machine.
+  - Has multiple pods on it.
+  - `kubelet` - Ensures that the containers defined in a Pod are running and healthy.
+    - Communicates with the Master node
+    - If it notices any issues with the pods running on the Worker nodes then it tries to restart the pod on the same node. If
+      the issue is with the Worker node itself then the K8s master node detects the node failure and decides to re-create the pods on the other healthy node.
+  - `kube-proxy` - Implements the networking aspects of the `Service` concept.
+    - `Service`
+      - Abstract way to expose an application running on a set of pods as a network service.
+      - Provides a virtual IP(known as the ClusterIP), which enables communication with any pod in the set without worrying about individual pod IP changes. 
+      - As pods are created and destroyed, services provide a stable endpoint, allowing other pods to discover and connect to the appropriate IP addresses, even as individual pods come and go.
+      - Uses a simple round-robin load balancing approach to distribute traffic across the pods.
+      - `Ingress` - Manages external access to the services in a K8s cluster(HTTP/HTTPS traffic). When external traffic comes 
+        to the cluster, it first passes through the Ingress, which routes it to the appropriate Service based on defined rules.
+    - Maintains network rules on nodes, which allow internal and external communication to the pods.
+  - `Container runtime`- Software responsible for running containers.
+    
+- `Worker node`
+  - Every cluster needs at least 1 worker node in order to run pods.
+  - Does the actual work, runs the containers that make up the application, managed by the `kubelet`.
+  - Controlled by the Master node.
+  - Hosts the pods that are the components of the application workload.
+  - `Pod`
+    - Smallest unit in K8s.
+    - Holds 1 or more containers, deployed together on the same host.
+    - Represents a set of running containers in the cluster.
+    - Usually 1 application per pod.
+    - Each pod gets its own unique IP address, which changes if the pod is recreated.
+    - Can die very easily.
+    - The lifecycle of a `Pod` and a `Service` are independent of each other.
+    
+- `Master node`
+  - Entry point of all administrative tasks.
+  - Need less resources than the `Worker nodes`.
+  - Hosts the K8s `Control plane` components, which make global decisions about the cluster state, as well as detecting and responding to cluster events.
+    - `kube-apiserver`
+      - Exposes an HTTP API that serves as the primary communication hub for end users, cluster components, and external systems.
+      - If you want to deploy a new application in a K8s cluster you interact with the API server using UI(K8s Dashboard) or CLI(`kubectl`).
+      - Cluster gateway.
+      - Acts as a gatekeeper for authentication.
+      - Good for security, because there is only 1 entry point into the cluster.
+    - `kube-scheduler`
+      - Responsible for distributing the workload and tracking the utilization of the working load of each Worked node.
+      - Watches for newly created Pods that have no assigned Node, and selects an appropriate Node for them to run on based on resource availability and other scheduling constraints.
+      - Only decides on which Node a new Pod should be scheduled, the actual the process of running the Pod is handled by the `kublet`.
+    - `kube-controller-manager` 
+      - Collecting and sending information to the API server.
+      - Detects and manages changes in the cluster's desired state.
+      - If a pod dies or becomes unhealthy, the Controller manager is responsible for ensuring that the desired state is 
+        restored. It does this by creating a new pod to replace the missing pod, and the `kube-scheduler` will then schedule the new pod onto an appropriate node.
+    - `etcd`
+      - Stores all cluster state data.
+      - The cluster brain.
+      - Key value store database.
+      - How does the `kube-scheduler` know what resources are available?
+      - How does the `kube-contrller-manager` know that the cluster state change?
+      - Does not store Application data.
+    - `cloud-contrller-manager` - Interacts with the underlying cloud provider's API to manage cloud-specific resources, such as load balancers, storage, and networking.
 
 K8s objects
 - `Deployment`
@@ -312,6 +321,8 @@ spec:
 - [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
 - [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
 - [Cluster Architecture](https://kubernetes.io/docs/concepts/architecture/)
+- https://www.geeksforgeeks.org/kubernetes-tutorial/
+- https://www.geeksforgeeks.org/introduction-to-kubernetes-k8s/
  
  
 </details>
