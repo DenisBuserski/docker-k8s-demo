@@ -285,6 +285,7 @@ spec:
 - [Docker Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=pg19Z8LL06w&list=WL&index=63&t=3s)
 - [18 Weird and Wonderful ways I use Docker](https://www.youtube.com/watch?v=RUqGlWr5LBA&list=WL&index=92)
 - [Използване на Docker за локална разработка на уеб приложения](https://www.youtube.com/watch?v=JHsNBNGNNCk&list=WL&index=53&t=2256s)
+- [Коя е НАЙ-РЕВОЛЮЦИОННАТА технология в ИТ?](https://www.youtube.com/watch?v=yuRXnPkD_YY)
 
 ### K8s
 #### Videos
