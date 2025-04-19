@@ -224,7 +224,6 @@ https://medium.com/thesecmaster/understand-the-difference-between-docker-engine-
 
 #### Videos
 - [Docker in IntelliJ IDEA](https://www.youtube.com/watch?v=FzwIs2jMESM)
-- [100+ Docker Concepts you Need to Know](https://www.youtube.com/watch?v=rIrNIzy6U_g)
 
 - [Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)
 - [How to dockerize your Spring Boot API | Docker Tutorial](https://www.youtube.com/watch?v=3SNKdr3f9Io)
