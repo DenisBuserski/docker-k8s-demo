@@ -6,13 +6,6 @@
 <summary><h2>Docker</h2></summary>
 
 
-
-
-
-                                                                                                                                                                                                                                                          
-
-<br>
-
 `_TO_DO_`
 Docker has 2 options for containers to store files on the host machine, so that the files are persisted even after the 
 container stops: 
@@ -28,8 +21,6 @@ container stops:
 | Anonymous volume - Not given a specific name. Docker assigns them an unique ID automatically.   |                                                                                                                                                                                                                            |
 | `docker run -v container_dir`                                                                   |                                                                                                                                                                                                                            |
 |                                                                                                 |                                                                                                                                                                                                                            |
-
-
 
 </details>
 
@@ -215,20 +206,13 @@ spec:
 <details>
 <summary><h2>Learning materials</h2></summary>
 
-### Udemy course
-- [Docker & Kubernetes: The Practical Guide [2024 Edition]](https://www.udemy.com/course/docker-kubernetes-the-practical-guide/)
 
 ### Docker
-#### Read
-https://medium.com/thesecmaster/understand-the-difference-between-docker-engine-and-docker-desktop-with-thesecmaster-0c2fecec926f#3eff
 
 #### Videos
-- [Docker in IntelliJ IDEA](https://www.youtube.com/watch?v=FzwIs2jMESM)
-
 - [Learn Docker in 7 Easy Steps - Full Beginner's Tutorial](https://www.youtube.com/watch?v=gAkwW2tuIqE)
 - [How to dockerize your Spring Boot API | Docker Tutorial](https://www.youtube.com/watch?v=3SNKdr3f9Io)
 - [you need to learn Docker RIGHT NOW!! // Docker Containers 101](https://www.youtube.com/watch?v=eGz9DS-aIeY)
-- [Why Use Docker: Real-life Use Cases](https://www.youtube.com/watch?v=rcYswUg0J5k)
 - [Multi Container Docker Applications | A real-world example](https://www.youtube.com/watch?v=bX_tFv0YCqg)
 - [Docker Crash Course Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9hxjeEtdHFNYMtCpjNBm3h7)
 - [Docker Tutorial for Beginners | Full Course [2021]](https://www.youtube.com/watch?v=p28piYY_wv8&t=3763s)
@@ -245,7 +229,7 @@ https://medium.com/thesecmaster/understand-the-difference-between-docker-engine-
 - [Docker Compose Tutorial](https://www.youtube.com/watch?v=HG6yIjZapSA)
 - [When would you want to use docker and docker-compose on your projects?](https://www.youtube.com/watch?v=m3To85qMOuA&list=WL&index=94)
 - [Docker Crash Course for Absolute Beginners [NEW]](https://www.youtube.com/watch?v=pg19Z8LL06w&list=WL&index=63&t=3s)
-- [18 Weird and Wonderful ways I use Docker](https://www.youtube.com/watch?v=RUqGlWr5LBA&list=WL&index=92)
+
 - [Използване на Docker за локална разработка на уеб приложения](https://www.youtube.com/watch?v=JHsNBNGNNCk&list=WL&index=53&t=2256s)
 
 ### K8s
