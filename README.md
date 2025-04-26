@@ -92,7 +92,7 @@ container stops:
 - [How to Create Helm Charts - The Ultimate Guide](https://www.youtube.com/watch?v=jUYNS90nq8U&t=47s)
 
 #### Read
-- [What is Kubernetes?](https://www.redhat.com/en/topics/containers/what-is-kubernetes)
+
 - [What is Kubernetes?](https://cloud.google.com/learn/what-is-kubernetes)
 - [How to explain Kubernetes in plain English](https://enterprisersproject.com/article/2017/10/how-explain-kubernetes-plain-english)
 - [What Is Kubernetes? What You Need To Know As A Developer](https://medium.com/@rphilogene/what-is-kubernetes-what-you-need-to-know-as-a-developer-674af25e3947)
