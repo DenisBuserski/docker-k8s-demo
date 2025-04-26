@@ -70,7 +70,6 @@ container stops:
 ### K8s
 #### Videos
 
-- [Kubernetes Explained in 6 Minutes | k8s Architecture](https://www.youtube.com/watch?v=TlHvYWVUZyc&list=WL&index=51)
 - [Docker vs Kubernetes vs Docker Swarm | Comparison in 5 mins](https://www.youtube.com/watch?v=9_s3h_GVzZc)
 
 - [Kubernetes Tutorial For Beginners - Learn Kubernetes](https://www.youtube.com/watch?v=yznvWW_L7AA&list=WL&index=104)
@@ -99,7 +98,6 @@ container stops:
 - [Kubernetes Components](https://kubernetes.io/docs/concepts/overview/components/)
 - [Objects In Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/)
 - [The Kubernetes API](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)
-- [Cluster Architecture](https://kubernetes.io/docs/concepts/architecture/)
 - https://www.geeksforgeeks.org/kubernetes-tutorial/
 - https://www.geeksforgeeks.org/introduction-to-kubernetes-k8s/
  
